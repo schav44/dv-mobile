@@ -1,0 +1,627 @@
+
+==========================================================
+TO LEARN: 
+==========================================================
+- how can we manipulate the dom element in a dynamic form (@Viewchild component id is not know at coding time only is know at runtime)
+- combining Jquery and Angular?
+- Investigate: import {EmailComposer} from '@ionic-native/email-composer' plugin
+- Investigate: https://ionicacademy.com/pdf-files-ionic/ IONIC PDF download
+- question: can we have and how, multiple instances of a component on a page like <grid> multiple times 
+    is a component tag one per page , how to map different model instances?
+
+DOCUMENTATION TO DO:
+====================
+052: document the dynamic class loading from the device file
+061: Document the rf example panel file to indicate attributes ignored by the Mobile app
+081: Get screen snapshots for the form controls for the document
+118: Document: css attributes and associate to class and style in html template
+
+
+----------------------------
+TODO:  (*= item in progress)
+----------------------------
+
+009: NLS the error messages for form validation (dvmform class)
+010: add attributes (or move them from base class attributes to subclasses)to the model control classes for attributes that are specific to the model.
+    currently the base control class may have subclass specific attributes
+
+029: compare init attributes methods in dvmform and the constructors for controls and make them consistent
+
+034: Enter is submit if there is 1 or less input fields. 
+    If there are more than 1 input field, if the current field is the last field then enter is submit, 
+    otherwise enter is tab to the next input field
+`1
+*** 043: the client should send an exception to the server if it can't build a form (the server tells the step engine "cancel")
+
+*** 051: better error handling if a form cant be created (bad json etc) currently we have a blank screen with no buttons.
+    Possibly provide a button to send a hardcoded cancel submitType to get the engine going
+    with partially filled form submit message (JML)
+
+063: gray out submit button until the required non-blank fields are entered
+
+!!!!!!!!!!!!!!!!!!!!
+065: Is the dynamic form PROVIDER class used ? MOVE LOGIC TO DVREST and Delete this provider
+--> testing this 068: Remove references and class if DataProvider is not used
+
+
+*** 049: expand the implementation of  the cfg parameter passed in the device file to include more cfg parms: 
+069: Validation for required fields (xml file definition, json .required attribute make it display err if left blank)
+070: For Control Models: add copy attributes to deep copy from xml/json constructor, move attibute inits from dvfom to controls
+077: Provide NLS messages for buttons
+
+079 better err message than "unable to validate  user" when bad json comes in for login
+080: display the form id with small font when clicked on the title CHANGE THIS because we will add the header menu  
+    Make this a header menu option (Show device info!)
+
+094: LOW: ability to define buttons, with text, color per panel
+
+100: on ctl_fulllistbox make autofocus like selected item class exp ? 'autofocus' : '' (OR DELETE AUTOFOCUS- don't use)
+
+148: on message box with OK button only hit enter to make the page submit
+149: full list box attributes Need to be able to override ctl_fulllistbox_item styles cant change in the cssStyle in xml
+150: xml file nls cset name definition tag to define sets (JML or JV)
+153: implement a named theme to override mobile.css + theme.css + device.css and specific
+    DVRest.java Line:~760
+154: horizontal adjustment controls with css, width etc. is not strong enough
+157: *** make a ctl_ionlistbox component to display ionic listboxes
+
+163: popup alert messages when exceptions occur (bad json, etc)
+
+165: ****** On single entry pages,read keyboard set the input field and then submit on enter.
+
+173: Integrate TC8000 Scan Interface based on Intent
+
+179: Angular is running in the development mode. Call enabDeviceleProdMode() to enable the production mode
+
+181: CORS bypass headers.
+    My "API Server" is an PHP Application so to solve this problem I found the below solution to work:
+    Place the lines in index.php
+
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
+189: adding platform ready check
+190: Delete Data Provider (seems like it is not used) NOT SURE, MAY BE NEEDED!!!
+191: renamed project from io.ionic.starter to ibm.dview.mobile VERIFY EMULATOR  and TC8000 cfg file work here
+
+193: NEED TO display a toast message sent from the server (if a parm map is set)
+    #### a response to a client poll message could be:
+        - display RF message to the user. (toast message)
+
+195: map the toolbar components to the dvmform.toolbar object attributes
+196: make a toolbar Model class and init attributes
+
+201: Add an attribute to control list box to render as button or text (Tell JEFF to change XML files)
+
+209: make the itemCssStyle of the ctl_fulllistbox override does not work for the a panel definition. The
+    style of the underlying ionic classes need to be changed for the page and then removed when the page changes.   
+    can we do [style]="control.cssStyle"?
+
+220
+    It looks like you're using the disabled attribute with a reactive form directive. If you set disabled to true
+      when you set up this control in your component class, the disabled attribute will actually be set in the DOM for
+      you. We recommend using this approach to avoid 'changed after checked' errors.
+       
+      Example: 
+      form = new FormGroup({
+        first: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
+        last: new FormControl('Drew', Validators.required)
+      });
+
+
+222 is the DVMobile/www/DVMobile.device.json file used if not DELETE IT
+
+225:SUPPORT RUNNING ON THE EMULATOR WITHOUT NEEDED ZEBRA DEVICE error that is displayed.
+  
+228: CODE CLEANUP
+- for the File to work in the browser do we have to make a browser platform?
+- make the url check use local storage
+
+237: TRY ACTION SHEET IN HEADER Menu
+
+239: *** List Item style class override
+243: add autoSubmitFlag to ctl_fulllistboxid "0=no autosubmit, anything else=autosubmit"
+248: EXCEPTION when scanning ( ] char causing exception)
+251: cfg.deviceParms.pollDiffTime is not used remove from code (also from device file)
+252: can we make login screen size unaware so it sizes properly ?
+253: Need a "Working icon" after submitting a form
+
+254: The DV Grid align rows, don't wrap rows, put horizontal scrollbar
+
+257: Need a way to get the Company.Site.StartPageLogo graphics file
+258: CLEANUP_TODO:
+    DynamicFormComponent: define Interface for: payloadObj and other hardcoded structures
+    
+259: ADD more Defines class attributes to replace the hardcoded strings used
+260: Make a Singleton logger class
+264: user id in poll message is null.
+-----
+265: Add more attributes to the common/interfaces file for ControlAttributes. Start using this Interface
+266: restructure control base class and control subclasses using ControlAttributes Interface
+267: Implement Grid control
+268: Implement full list box width, hegiht percentage and horizontal scroll
+269: test TC8000 app (not running correctly- scan TC8000 barcodes)
+270: review cfgProvider methods, some were put in for ctl_fulllistbox, grid, etc but are not used.
+     may wait until ctl_fulllistbox dims prcentages are implemented and the grid is finished.
+271: Make requestedFormObject an interface (in DynamicFormProvider)     
+272: may implement a generic logging module with debug, info, warn, error level logging
+273: define payloadObj (dynamicFormPage as an interface)
+274: Define event, payload stuctures in interfaces.ts
+275: The title bar is shorter than the screen width when running on the Android.
+276: Consider moving startup config file reading into a provider ( a new on or an existing one)
+277:
+278:
+279:
+280:
+
+
+=============================================================================================
+DONE:
+=============================================================================================
+
+CURRENT:
+
+DV00024908-DVMobileDevel-77-android-config-file-fix
+Add Defines class
+Cleanup lint messages
+262: Delete ChangePassword, Login pages, Home page
+261: Remove password from local storagecd ..
+168: Comment unused imports
+263: CMPILING ionic build --prod:
+215 BUG: scan WA : type bogus id, mesg displayed , press OK nothing happens
+216 BUG: scan WA : type something, hit enter , page not submitted (refreshes)
+223 DISPLAY JSON PARSE ERROR on CLIENT
+
+---------------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-76-disable-browser-back-button
+
+---------------------------------------------
+DV00024908-DVMobileDevel-75-cleanup-unused-lines
+
+--------------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-74-Add-LoadingController-Message-Capability
+Added "sending..." message when a form is submitted (commented out in contructor of
+DynamiFormPage)
+Added deviceType to ActionSheet submits.
+
+----------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-73-Add-deviceType-to-submit-msg
+Clean up commented code (not a total cleanup, but a first pass)
+Add deviceType to form submit post request
+
+----------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-72-Added-the-start-page
+238: Design Siteminder login and skip dview login page:
+create StartPage
+---------------------------------------------------------
+DV00024908-DVMobileDevel-72-fixed-requestForm-parameter
+255: Seem to request first form multiple times
+
+---------------------------------------------------------
+DELIVERED DV00024908-DVMobileDevel-71-Add-deleted_ctl_listbox-template
+---------------------------------------------------------
+
+DELIVERED DV00024908-DVMobileDevel-70-Stable-vertical-fulllist-Yscrolling-only
+
+-----------------------------------------------
+DV00024908-DVMobileDevel-69-Listbox-Sizing
+255: Need ctl_listbox to scroll horizontally (make font large so it won't fit horizontal, and scroll)
+
+-------------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-60-commented remote logging
+
+------------------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-59-polling-fix
+229: The POST sending thread never dies (need to shut it down sometime)
+241: polls are sent multiple times in the same second
+117: Polling repeats and logs exception error after previous fix 
+159: LO: Cleanup code for polling remembering last message sent time. No need for that Also, the duplicate should check 90% of poll time to assume duplicate.
+214 *** TC8000 version is polling continuously
+-------------------------------------
+DELIVERED  DV00024908-DVMobileDevel-59-toolbar-footer-spacing-update
+246: put space beetwen the yes no buttons, they are too close on the TOOLBAR/formControlName
+
+-------------------------------------
+DELIVERED DV00024908-DVMobileDevel-58-set-single-input-field-focus
+242: set focus on input field if single entry 
+-------------------------------------
+DELIVERED DV00024908-DVMobileDevel-57-footer-button-icon-style-classes
+247: make seaprate classes for footer buttons and footer icons
+245: make footer button size automatically (bigger on ipad)
+--------------------------------
+DV00024908-DVMobileDevel-56-button-sizing
+245: make footer button size automatically (bigger on ipad) specified class: .footer_button in CSS file
+---------------------------------
+DV00024908-DVMobileDevel-55-footer-title-implemented
+243: add autoSubmitFlag to ctl_grid "0=no autosubmit, anything else=autosubmit"
+244: add saveValueType attribute = "cell" / "row" if cell= return cell value, anything else return row value
+244: implement footer title for text to display over the footer
+
+----------------------
+DV00024908-DVMobileDevel-54-grid-implementation-done
+DELIVERED TO LAB GIT REPO
+
+--------------------------------------
+COMMITED LOCAL: DV00024908-DVMobileDevel-53-partial-grid-rendering-done
+240: dont show footer action sheet button when no action sheet (cyurrently shows empty list popup)
+231: DONT SHOW ActionSheet button for forms like this with no action sheet
+-----------------------------------------------------------------
+COMMITTED LOCAL :DV00024908-DVMobileDevel-53-partial-grid-column-sizing-done
+-----------------------------------------------------------------
+COMMITTED LOCAL :DV00024908-DVMobileDevel-53-partial-grid-rendering-done
+
+----------------------------------------
+DELIVERED:DV00024908-DVMobileDevel-52-partial-grid-implementation
+----------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-51-control-listbox-item-style
+235: DOCUMENT parent to child page->form component-> footer command call methodology.
+240: Delete DVRest/ DVRestEAR Projects
+138: add itemCssStyle and itemStyleClass to the applied to the items in the fulllistbox.
+----------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-50-button-hide-show-fix
+230: TAKE OUT FOOTER CODE FROM DynamicFormComponent(it was moved to FooterComponent)
+232: BUG: when an empty field is submitted on a for after validation err msg, the submit and back button are lost
+ ADDED MECHANISM TO SEND COMMANDSFrom Dynamic for page -> to dynamic form component to -> footer
+234 BUG: Allow empty value=0 in the xml file cuases the input to misbehave (typed field gives empty validation err)
+
+-------------------------------------
+DELIVERED DV00024908-DVMobileDevel-50-action-sheet-working
+198: add a class for form_actionsheet style and implement action sheet
+206: BUG: action sheet icon displayed ion second controlbox menu when it should not be displayed
+200: Map dvmform footer object attributes to the html template
+
+------------------------
+DELIVERED DV00024908-DVMobileDevel-49-updated-datawedge-IF-submits scans
+226: MOVE THE DATAWEDGE PROFILE CODE FROM DynamicFormPage constructor to a place where it is called only once
+227: TRY: preventing multiple events triggered in DynamicFoermComponent (from datawedge)
+    - may move listener to DynamicFormPage class. My need to prevent multiple listener threads to be created,
+224 WRITE DATAWEDGE INPUT - Profile add ] prefix setup
+
+
+-------------------------scroll
+DELIVERED DV00024908-DVMobileDevel-49-upscrolldated-datawedge-IF-notComplete
+Made changes to move datawedge initializscrollation to barcode.ts file andadded event listeners to the DynamicFormControl
+class. However, the listner is triggerrescrolld multiple times and the code that submits the result is not written yet.
+I am leaving the non-working in complete code and moving the work on the footer action sheet.
+
+
+----------------------
+DELIVERED DV00024908-DVMobileDevel-48-lab-mode
+218 NEED A GLOBAL FLAG to let typing for scan only fields for lab testing
+174: Change Project name Currntly= DF2 ( changed to com.ibm.dview.mobile)
+212 config.xml change: <description>An awesome Ionic/Cordova app.</description>
+213 config.xml: change <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+-----------------------------------
+DELIVERED: DV00024908-DVMobileDevel-48-Datawedge-integration
+BRANCH DV00024908-DVMobileDevel-48-Datawedge-integration
+217 Write keyListener attached to windows for non barcode systems to get keystroke (may need command option to set flag to do autofocus or not)
+Keyboard wedge scanner (focus on inout or not) works (submit scanner)
+219 Implement the mobile screen scanner & keyboard input logic
+- uncommented following code in dynamic-form.ts
+@HostListener('document:keydown', ['$event'])
+keyevent(event: KeyboardEvent) {
+
+- removed autofocus attribute from the input control html file
+- finished keyboard and keyboard wedge scanner integration -> DATAWEDGE input not submitted yet
+208: The enter key does not submit page on o single entry form
+221 *** TEST MULTI INPUT FORM with scanner, kbd entry and hitting enter and/or tab
+
+----------------------------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-47-size-ctl_fulllistbox
+207: NEW: Add a size attribute to ctl_listbox to control size of html rendered listbox
+
+DELIVERED: DV00024908-DVMobileDevel-46-Added-Cordova-Native-Keyboard
+
+DELIVERED: DV00024908-DVMobileDevel-45-_fulllistbox-button-text-types
+204: Add an attribute to ctl_fulllistbox to render button or text in the listbox
+
+
+DELIVERED: DV00024908-DVMobileDevel-45-added footer-actionsheet
+194: better align middle buttons on tollbar
+197: should we display back button on fulllistbox menus? YES
+205:Make the action sheet menu icon/button hidden/displayed based on flag
+204: Hide the action sheet menu on the Logoff page
+199: the last "no more WA left to do" screen needs an OK button on it that takes it to the login page
+
+
+
+DV00024908-DVMobileDevel-44-android-cfg-file-location-change
+The location was changed but not tested also the old location io.ionic.starter was not cleaned up
+this delivery was made so I could synch the server and backup the existing code
+
+
+DV00024908-DVMobileDevel-43-cordova-config-file-implementation
+Added cordova file plugin again
+removed/ created platforms folder
+183: add cordova config file for reading server url 
+176:*** HARDCODED SERVER URL (inorder to bypass Cordova app - must make this a config)    
+164: Cordova interface
+
+---------------------------------------
+DV00024908-DVMobileDevel-42-cordova-file-plugin-setUserAgent
+ Added code to set User agent but it didn't work (in cordova provider, called from home page)
+ Added cordova file plugin
+
+------------------------------------------
+
+DELIVERED: DV00024908-DVMobileDevel-41-add-cordova-provider
+182: Add cordova provider and make web version run 
+---------------------------------------
+DELIVERED: DV00024908-DVMobileDevel-40-add-cordova-plugins-for-statusbar-splashscreen
+178: Add Cordova plugins for: add cordova-plugin-statusbar
+    cordova-plugin-splashscreen
+    
+------------------------------    
+DELIVERED: DV00024908-DVMobileDevel-39-add-cordova-plugin-for-Device
+    177: Add Device Codova Plugin
+    fix build error ionics app in build production mode
+    ionic build --prod  (now works)
+    the cordova.js is uncommented commented
+    added cordova plugins for device and added device info on message box trigerred by title click.
+    added whitelist for REST api 
+    Runs on emulator and TC8000 with cordova Device plugin
+----------------
+DELIVERED: DV00024908-DVMobileDevel-39-non-cordova-production-build-fixed
+
+DELIVERED:DV00024908-DVMobileDevel-39-comment-unused-imports
+
+
+
+DELIVERED:DV00024908-DVMobileDevel-38-logging-rest-application
+166: add api to send a message from client to server to be written to a log
+    this way we can tell if a client actually executed a line of code.
+    (for clients that can't be running in console debug mode)
+
+DELIVERED:DV00024908-DVMobileDevel-37-minor-cleanup
+160: Cleanup commented and unused code- minor cleanup
+
+DELIVERED:DV00024908-DVMobileDevel-36-panelText-textarea
+147: make ctl_panel text implementation like exception
+    Menu: locationAdmin, scan task that goes to erroroloc, then choose Analyze
+    JsonPanelRenderer Line: 460~  
+    // the client renderer should render like textArea with a unique style css name
+
+DELIVERED:DV00024908-DVMobileDevel-35-back-icon-button
+158: On screens where we display cancel button only, change the button to say back (on ctl_fulllistbox) icon with back arrow
+
+DV00024908-DVMobileDevel-34-login-screen-width
+155: login screen title too wide, input fields are too long
+xxx: partial implementation for keyboard capture on page without focus on input field
+    (captures input regardless of number of input fields and does nothing with it)
+
+DELIVERED: DV00024908-DVMobileDevel-33-trimming-polling
+152: delete unused old dvmform class
+145: Polling: poll at a specified interval forever
+146: Entry fields strip all leading blanks (set location screen under misc)
+
+
+DELIVERED: DV00024908-DVMobileDevel-32-Misc-fixes
+120: Change color submit button when clicked
+126: HI-1: set the tabindex=-1 (non reachable) for fields other than ctl_input, ctl_listbox, ctl_fulllistbox, and buttons
+137: The button goes back to blue: Check call onFromProcess setButtonFlags() in dynamic form component may be the cause
+131: if respect case is not specified default to =0, which is uppercase input.
+132: HI-3: the button color change when clicked, reverts back to blue and requires duplicate submit (seems like screen refresh without submit)
+139: After a validation error message popup the form buttons disappear
+136: DONT SET FOCUS IF THERE IS MORE THAN 1 INPUT
+
+133: HI-4: Login screen needs to look consistent (first time login vs subsequent login)
+141:  Change password screen needs to look consistent (first time login vs subsequent login)
+143: The ctl_input lost the background color ( fixed)
+144: Add device=IPHOE6 and css file (in progress)
+
+DELIVERED: DV00024908-DVMobileDevel-listbox-unselect-1st
+130: Remove code to make the first item in the listbox selected
+
+
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-30-cache-andstyle-fix
+121: Browser clear cache forcing (with response headers addad Java to the AuthFilter)
+125: Fix cssStyle override for ctl_input
+
+
+DV00024908-DVMobileDevel-incremental-commit-29-more-css-tweaks
+- with jeff WE UNDID THIS!
+
+
+
+
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-28-css-related-updates
+115: make default styleclass is attribute object not specified in the title
+114: Add attributes for the title - implement code supporting the attribubes
+109: add form level class and style overrides (may need back ground enclosing div for the form using screenx screeny)
+116: specify dim on the title bar div
+Separated ctl_paneltext TC800 and DVMobile css file attributes
+123: Browser clear cache forcing (with HTML 4 Metatags) MAY NEED TO ADD THIS
+
+-------------------------------------
+DELIVERED: DELIVERED: DV00024908-DVMobileDevel-incremental-commit-26-title-changes
+108: on ctl_fulllistbox submit when item clicked, only display a cancel button
+093: compare control type by converting to lowercase in dvmform switch statement (in a previous delivery)
+112: Take submit box off the ctl_fulllistbox screens (leave cancel only)
+
+-------------------------------------
+DV00024908-DVMobileDevel-incremental-commit-25-styleclass-improvements
+103: Ignore align statement in the xml file, just go by the css default styles and override style statements for alignment
+104: Fix label_tc8000 and label_mobile label overrides
+106: place holder was not assigned in ctl_input it is not working
+078: Implement ctl_paneltext
+054: change login page, password change page style classes, make buttons bigger
+092: Trim all input fields leading/trailing blanks
+
+??098: highlight ctl_fulllistbox selection background (background-color does not work in form_ctl_fulllistbox style class.)
+-----------------------------
+
+DELIVERED 8/24/2018: DV00024908-DVMobileDevel-incremental-commit-24-ctl_fulllistbox
+095: add ctl_fulllistbox (Form 5) to WebDView *** this has multiple steps
+090: Trim userid / password leading/trailing blanks
+091: Uncomment title bar (restore it after testing)
+096: add Java code for rendering ctl_fulllistbox
+097: add filename to json form definition coming from the host
+099: removed sub title from login screen and made title bar same css class as dynamic form page title
+071: Missing panelText control implementation? JML
+---------------
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-24-fix-DF_definitions-in-ctl_input
+084:Fix the DF_ attributes added to the ctl_inbut model (was creatingJSON attributes named DF_)
+---------------
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-23-display-form-filename
+083:Add filename to form and display the filename when clicked on the form title
+
+--------------
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-22-additional-config
+074: Added poll related parms to device config object passed during login
+
+---
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-21-dynamic-css-loading
+
+067: Add missing panelText def style
+066: Commented dynamic style class reading from config and hard coded in app.scss (make it read dynamic again)
+
+
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-21-poll-fix
+073: externalized some constatnts in HopePage to use CfgProvider
+075: Auto polling continues after logoff screen is displayed (Need to convert to use local storage)
+
+011: Implement some define javascript file CFG PROVIDER: to define device parameters #define for common constants: "submit, cancel, logoff, etc"
+        May implement a CfgProvider class that saves and serves this parms
+        define pollInfoStr = '{ "deviceID" : "XYZ","deviceType" : "TC8000","user": "ibm","time" : "1234456"}'
+        GET URL and other parms for app from028: selectively ( and programatically configure to autofocus to set the focus on input focus) the server ? include file in index.html?
+
+--------
+
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-20-cfgProvider
+042: implement/ use ther CfgProvider parameters instead of hardcoded keys
+
+
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-20-auto-polling
+026: when the user navigates to the Dynamic form page start polling to keep the session alive
+059: read the polling frequency from the device (add to device cfg json file) And Add other configuration parameters
+060: read the polling polling duration after last meaningful poll and after that stop polling
+064: fix multiple poll messages after 15 minutes
+046: log off the mobile if there was no meaningful activity for N minutes?
+---------------
+
+
+DELIVERED: DV00024908-DVMobileDevel-Pre-PWA-App commit-20
+
+DELIVERED: DV00024908-DVMobileDevel-incremental-commit-19
+DONE: 055: do we need status line for ctl_fulllistbox if so, add to renderer if not take out from construbctor
+DONE: 053: why do we hav 2 nested <div> for: <div *ngSwitchCase="'ctl_fullistbox'" >
+DONE 064: Fix init value for allowEmptyValue 
+DONE 062:enable validation for 4,5,6 validation enumerations`
+DONE 056: add new attribute to RF xml for form_ctl_fulllistbox_item class
+DONE 057: apply the form_fullistbox_item class in the constructor of FullListbox, and the rendering html template
+DONE 058: Document ( document form_ctl_fulllistbox_item class, and add to rf example file)
+DONE 053: print alert message if device congi file is missing
+DONE: 038: ERROR when you hit a key in a focused list box you get the following erroctl_listbox component may not have key press handler)
+    ERROR TypeError: _co.onKeyPress is not a function
+
+DONE 041: change the rendering of ctl_fulllistbox to use the ionic listbox (and implement action handlers)
+045: implement ionic list box behavior
+
+-----
+
+021: make a list of device specific parms and provide a way to read this from the server
+    On tDV00024908-DVMobileDevel-incremental-commit-19he server create a properties file for each device.
+DV00024908-DVMobileDevel-incremental-commit-19
+012: DocDV00024908-DVMobileDevel-incremental-commit-19ument form controls and make examples of css style statements
+017: MenDV00024908-DVMobileDevel-incremental-commit-19us may have to be a different control type because keyboard behavior is different
+018: Implement autoselect in a listbox if only one option is available
+
+
+---
+DV00024908-DVMobileDevel-incremental-commit-18  DELIVERED 8/2/1018
+047: put space between buttons if there are 2 buttons
+040: change the rendering of ctl_listbox to use html widget 
+048: implement the cfg parameter passed in the device file to include more cfg parms:
+    currently deviceType: screenx, screeny, defaultStyleClasses
+
+030: better css styling for input fields- make dynamic external style definition to load at login
+031: Set Focus on listbox in listbox first line
+---
+
+DV00024908-DVMobileDevel-incremental-commit-76:
+Minor changes:
+- added event hanler to trap enter key but was not able to alter the behavior of the form, but establshed a place holder event handler.
+- added div id attribute derived from the the embedded input field id.
+Implemented: 023:Tabbing to a clear input field replaces input field value with "Tab" and "Backspace" words
+
+
+DV00024908-DVMobileDevel-incremental-commit-16:
+001- implement a way for WebDView to send a Logoff message to Mobile (the server already sends a panel to lead to logoff)
+002- Implement a stay alive loop from the client to the server (with a time limit)
+007- set focus on screen display:
+    on first input field
+    *** try an ionic input (for focus) then see if we can change other attributes
+028: selectively ( and programatically configure to autofocus to set the focus on input focus)
+-------------------
+
+DV00024908-DVMobileDevel-incremental-commit-13: the following were included:
+006- Convert inputs to uppercase unless respectCase=1 
+013: Validation: if a field is allowed to be empty alphaNumeric check should pass on an empty field
+    Cancel button should not validate form
+016: Add new labels for label_MOBILE, label_TC8000
+
+005- change ctl_listbox to have a cancel button only select by touching option
+    (how does the select with touch behave when the list id scrolled?
+    do we need an icon are to activate selection)
+006-Select the first item in the listbox by highlighting
+007-Add Validation to all of the controls
+019: ctl_xxxlistbox flavors:
+    autoSelect  // 0=dont auto select, 1= if there is one item select and return
+    statusLine  // extra line to display text
+    style  //  Highlighted=0, Numbered = 1  -->ctl_listbox we wont support numbered
+    - Always highlight to first item in the listbox
+004- Implement a ctl_buttonlist component
+    I am using the ionic item-span list
+    need keyboard to scroll up down, 
+    show selected line highlighted
+    submit when enter or number pressed or touch clicked
+    support numbered and non numbered buttons
+    support keyboard number input. 
+    Support status line
+    Display Only Cancel button
+008- implement tabbing tabindex
+003- Implement a status bar on the List box screens
+
+
+-----------------------------
+Temp
+-----------------------------
+
+works non autofocus ion input saved for backup
+<!-- IONIC REPLACEMENT FOR angular input, trying to set focus Not supported attribs: name, size-->
+        <div *ngSwitchCase="'ctl_input'" [id]="control.id" [ngStyle]="control.attributes.statusCssStyle" [class]="control.attributes.styleClass">
+                
+                <ion-item *ngSwitchCase="'ctl_input'">
+                    <ion-input placeholder="Text Input" [formControlName]="control.id" [id]="control.id" [class]="control.attributes.styleClass"
+                        [style]="control.attributes.cssStyle" [maxlength]="control.attributes.maxlength" type="{{control.attributes.protectMode == '1' ? 'password':'text'}}"
+                        this.enableBackdropDismiss = parms.enableBackdropDismiss[(ngModel)]="control.value" (keyup)="onKeydown($event, control )" [tabindex]="control.tabindex">
+                    </ion-input>
+                </ion-item>
+
+        </div>
+
+-------------------
+NOTES:
+-------------------
+
+
+Q?: is there a way to programatically update this definition?
+Q?: how else can we programatically set the form background color
+
+
+=============================================================================================
+QUESTIONS:
+=============================================================================================
+ ?: JW: on the grid and the fullistbox we currently auto submit on selection.
+    Should we have an option to save the selection and not autosubmit. This will allow input fields 
+    to co exist on the same form with a grid  or listbox (multiple grids, etc.)
+
+?: 
+
+
+=============================================================================================
+RECENT TODO:
+=============================================================================================
+- check action list count, if no action don't display action icon ( example bug: under full list box screen)
+

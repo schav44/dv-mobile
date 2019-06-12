@@ -1,0 +1,7 @@
+{
+  "name": "DVMobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

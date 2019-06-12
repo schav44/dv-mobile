@@ -1,0 +1,1000 @@
+  542  cd BLD.490/DVMobileDevel/
+  543  git branch
+  544  git fetch origin develop/DV490
+  545  git merge --ff-only FETCH_HEAD
+  546  git status
+  547  git stash
+  548  git status
+  549  git merge --ff-only FETCH_HEAD
+  550  git log25
+  551  git revert 7acc238
+  552  git stash pop
+  553  git diff
+  554  git branch
+  555  git push origin develop/DV490
+  556  git branch
+  557  git log25
+  558  exit
+  559  uname -r
+  560  ssh -YC dvbuild@198.11.232.107
+  561  cat .ssh/id_rsa.pub
+  562  ssh -YC dvbuild@198.11.232.107
+  563  ssh -YC cpp490@198.11.232.107
+  564  exit
+  565  ionic build
+  566  cdr
+  567  PrintMgr PrintMgr.cfg
+  568  cdw
+  569  cdv
+  570  cd ../WebDView
+  571  git status
+  572  git svr-synch
+  573  git log25
+  574  cdm
+  575  git status
+  576  cdm
+  577  git status
+  578  git flow feature start DV00024908-DVMobileDevel-34-login-screen-width
+  579  git status
+  580  git add .
+  581  git branch
+  582  git commit
+  583  git status
+  584  git svrsynch
+  585  git flow feature finish
+  586  git pushdev
+  587  VShutdown all
+  588  dv host
+  589  cdr
+  590  svc
+  591  df
+  592  svc
+  593  cdv
+  594  git log25
+  595  history
+  596  bldall.sh
+  597  cdm
+  598  git status
+  599  cdv
+  600  cd ../WebDView
+  601  ls
+  602  git status
+  603  git svr-synch
+  604  cdm
+  605  git status
+  606  cd src
+  607  grep -Ri maxPollDuration *
+  608  cd ..
+  609  ionic build
+  610  cd ..
+  611  cd DVMobileDevel/
+  612  ionic build
+  613  ionic -version
+  614  ionic build
+  615  cd src
+  616  grep -Ri HostListen
+  617  cd ..
+  618  ionic build
+  619  cd src
+  620  grep -iR paneltext
+  621  cd ..
+  622  ionic build
+  623  ionic build --production
+  624  cdv
+  625  git status
+  626  VShutdown all
+  627  git svr-synch
+  628  git status
+  629  git svr-synch
+  630  git status
+  631  cd DC/SQL/500
+  632  DVMenu.pl
+  633  cdv
+  634  bldall.sh
+  635  VShutdown all
+  636  cd1t
+  637  ls
+  638  cd back*
+  639  ls
+  640  cd BLD.490
+  641  ls
+  642  cd ../..
+  643  ls
+  644  cd dcdata
+  645  ls
+  646  cd ..
+  647  showenv
+  648  df
+  649  cd /media/dvbuild/FANTOM4
+  650  ls
+  651  cd DCData
+  652  ls
+  653  ls -al
+  654  df
+  655  cd1t
+  656  ls
+  657  cd Images
+  658  ls
+  659  cd ..
+  660  cd db2i105
+  661  ls
+  662  cd ..
+  663  cd backups
+  664  ls -al
+  665  cd ..
+  666  cd
+  667  ls
+  668  cd backup
+  669  cd Backup
+  670  ls
+  671  pwd
+  672  ls -al
+  673  cd
+  674  ls
+  675  cd BLD.500
+  676  ls
+  677  cdt
+  678  ls
+  679  VShutdown all
+  680  cdv
+  681  git status
+  682  git svr-synch
+  683  cdv
+  684  cd DC/SQL/500
+  685  DVMenu.pl
+  686  svc
+  687  cdv
+  688  bldall
+  689  bldall.sh
+  690  cd DC/SQL/500
+  691  l
+  692  DVMenu.pl
+  693  cdm
+  694  l
+  695  git status
+  696  cdw
+  697  git status
+  698  cdm
+  699  git flow feature start DV00024908-DVMobileDevel-33-trimming-polling
+  700  git status
+  701  git branch
+  702  git status
+  703  git add .
+  704  git status
+  705  git commit
+  706  git svr-synch
+  707  git flow feature finish
+  708  git pushdev
+  709  cdw
+  710  git status
+  711  git flow feature start DV00024908-DVMobileDevel-33-trimming-polling
+  712  git add .
+  713  git commit
+  714  git svr-synch
+  715  git flow feature finish
+  716  git pushdev
+  717  cdr
+  718  svc
+  719  VShutdown all
+  720  svc
+  721  cdr
+  722  svc
+  723  cdv
+  724  git status
+  725  cdm
+  726  git status
+  727  git add .
+  728  git flow feature start DV00024908-DVMobileDevel-38-logging-rest-application
+  729  git branch
+  730  git status
+  731  git commit
+  732  git svr-synch
+  733  git flow feature finish
+  734  git pushdev
+  735  cdw
+  736  git status
+  737  git flow feature start DV00024908-DVMobileDevel-38-logging-rest-application
+  738  git add .
+  739  git commit
+  740  git svr-sync
+  741  git flow feature finish
+  742  git pushdev
+  743  VShutdown --help
+  744  VShutdown 
+  745  cd 
+  746  cdv
+  747  cd DC/Inc
+  748  grep -iR 120
+  749  cd ..
+  750  cd DView/Inc
+  751  grep -iR 120
+  752  cdm
+  753  git status
+  754  cdv
+  755  git status
+  756  cdm
+  757  git status
+  758  cdw
+  759  git status
+  760  cdm
+  761  find . -name *cordova* -type f
+  762  cd www
+  763  find . -name *cordova* -type f
+  764  cdr
+  765  db2start
+  766  VShutdown all
+  767  svc
+  768  ionic build
+  769  cordova plugin ls
+  770  npm install -g bower
+  771  sudo npm install -g bower
+  772  npm i -g npm
+  773  sudo npm i -g npm
+  774  bower install ngCordova
+  775  sudo bower install ngCordova
+  776  cd lib
+  777  l
+  778  ls -la
+  779  cd www
+  780  ls -la
+  781  cd
+  782  cdm
+  783  pwd
+  784  cd /home/dvbuild/BLD.500
+  785  cd DVMobileDevel/
+  786  l
+  787  cordova plugins ls
+  788  npm install -g cordova
+  789  sudo npm install -g cordova
+  790  cordova plugins ls
+  791  ionic build
+  792  ionic build --prod
+  793  ionic build --prod  --verbose
+  794  ionic build --verbose
+  795  npm i -g ionic
+  796  sudo npm i -g ionic
+  797  ionic build
+  798  ionic cordova build android
+  799  ionic cordova build android --verbose
+  800  ionic  build 
+  801  ionic cordova build android
+  802  cd
+  803  cd tools/bin/
+  804  sdkmanager
+  805  echo $JAVA_HOME
+  806  /usr/lib/jvm/java-8-openjdk-amd64/bin/javac -version
+  807  cd
+  808  cd Android/Sdk/tools/bin/
+  809  sdkmanager --list
+  810  sdkmanager --update
+  811  sdkmanager
+  812  echo $JAVA_HOME
+  813  java
+  814  java --version
+  815  java -version
+  816  java -d32
+  817  echo $JAVA_HOME
+  818  $JAVA_HOME\bin\java -version
+  819  l $JAVA_HOME\bin
+  820  l $JAVA_HOME\
+  821  ls $JAVA_HOME
+  822  ls ($JAVA_HOME)
+  823  ls $JAVA_HOME
+  824  ls $JAVA_HOME\jre
+  825  cd $JAVA_HOME
+  826  l
+  827  cd jre
+  828  java -version
+  829  echo $JAVA_HOME
+  830  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
+  831  cd
+  832  cd Android/Sdk/tools/bin/
+  833  sdkmanager
+  834  echo $JAVA_HOME
+  835  export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+  836  sdkmanager
+  837  export ANDROID_HOME=/Android/Sdk/
+  838  sdkmanager
+  839  xport PATH=${PATH}:/Android/Sdk/platform-tools:/Android/Sdk/tools
+  840  export PATH=${PATH}:/Android/Sdk/platform-tools:/Android/Sdk/tools
+  841  sdkmanager
+  842  ./sdkmanager
+  843  gedit sdkmanager
+  844  ./sdkmanager
+  845  export JAVA_HOME=/opt/android-studio/jre
+  846  sdkmanager
+  847  cd .
+  848  cd
+  849  l *.rc
+  850  l bash*
+  851  l .bash*
+  852  gedit .bashrc
+  853  gedit jv_profile.sh
+  854  cd tools/
+  855  cd bin/
+  856  sdkmanager
+  857  cd tools/bin
+  858  sdkmanager
+  859  cd tools/
+  860  cd bin
+  861  sdkmanager
+  862  cd /BLD/DView/Web
+  863  cd
+  864  cd BLD
+  865  l
+  866  cd CPP
+  867  l
+  868  cd DView/Web/Panel/RF/
+  869  l SW*
+  870  cd 
+  871  android.sh
+  872  cd /opt/android-studio/
+  873  android.sh
+  874  studio.sh&
+  875  l *.sh
+  876  ./studio.sh&
+  877  ./studio.sh
+  878  l
+  879  cd bin
+  880  ./studio.sh
+  881  sudo apt-get install lib32ncurses5 lib32stdc++6
+  882  cd 
+  883  cd Android/Sdk/tools
+  884  ./sdkmanager
+  885  cd bin/
+  886  ./sdkmanager
+  887  sudo ./sdkmanager
+  888  cd
+  889  cd tool
+  890  cd tools/
+  891  cd bin
+  892  l
+  893  sdkmanager
+  894  top
+  895  cd
+  896  cd Downloads/
+  897  l 
+  898  sudo unzip -d /opt/  android-studio-ide-181.5056338-linux.zip
+  899  cd /opt/android-studio/
+  900  cd bin
+  901  ./studio.sh
+  902  cdm
+  903  git status
+  904  cdw
+  905  git status
+  906  cdv
+  907  git status
+  908  cd /
+  909  find . -name *node* -type f
+  910  find . -name *node*js -type f
+  911  cd /usr/
+  912  l
+  913  cd bin
+  914  l
+  915  l node*
+  916  ls -r  /etc/alternatives/nodejs
+  917  cd  /etc/alternatives/nodejs
+  918  cd  /etc/alternatives/
+  919  l
+  920  l node*
+  921  cd /usr/bin
+  922  ls node*
+  923  cd node
+  924  l node
+  925  node
+  926  ls /usr/libexec/java_home
+  927  ls /usr/libexec
+  928  ls /usr/
+  929  echo $JAVA_HOME
+  930  cd
+  931  cd Workspaces/
+  932  cd node/
+  933  sudo npm install -g cordova
+  934  sb_release -a
+  935  lsb_release -a
+  936  sudo apt-get install ia32-libs
+  937  java -version
+  938  echo $JAVA_HOME
+  939  ls -la  sudo apt-get install lib32z1 lib32ncurses5
+  940  ls -la /usr/lib/jvm/java-8-openjdk-amd64
+  941  sudo apt-get install cpu-checker
+  942  kvm-ok
+  943  $ sudo npm install -g ionic
+  944  $ ionic cordova platform add ios
+  945  ionic start 
+  946  ionic start
+  947  cd ionic_cordova/
+  948  ionic serve -c
+  949  cd ..
+  950  l ionic*
+  951  l
+  952  cd ..
+  953  rm Ionic-Cordova
+  954  del Ionic-Cordova
+  955  rm -r Ionic-Cordova
+  956  l
+  957  cd todo
+  958  ionic cordova platform add android
+  959  ionic cordova emulate
+  960  ionic cordova serve
+  961  ionic cordova run
+  962  ionic serve
+  963  cd ..
+  964  git clone https://github.com/darryncampbell/DataWedgeCordova.git
+  965  l
+  966  cd DataWedgeCordova/
+  967  cordova platform add android
+  968  cordova run android --device
+  969  cordova platform ls
+  970  lsb_release
+  971  lsb_release -a
+  972  umake
+  973  sudo add-apt-repository ppa:webupd8team/java
+  974  sudo apt-get update
+  975  sudo apt-get update oracle-java8-set-default
+  976  sudo apt-get install oracle-java8-set-default
+  977  cd
+  978  l *jv*
+  979  gedit jv_profile.sh
+  980  echo $HOME
+  981  ls $HOME\Android
+  982  l $HOME\Android
+  983  cd Android/Sdk/
+  984  l
+  985  cd platform-tools/
+  986  l
+  987  cd /opt
+  988  l
+  989  sudo rm -r android-studio
+  990  l
+  991  cd
+  992  l andr*
+  993  cd Downloads/
+  994  l andr*
+  995  sudo unzip -d /opt/android-studio-ide-181.5056338-linux.zip
+  996  sudo unzip -d /opt/ android-studio-ide-181.5056338-linux.zip
+  997  cd /opt/android-studio/bin
+  998  ./studio.sh
+  999  cdr
+ 1000  svc
+ 1001  db2start
+ 1002  svc
+ 1003  cd /
+ 1004  find -name javac -type f
+ 1005  sudo find -name javac -type f
+ 1006  ionic serve
+ 1007  ng serve
+ 1008  echo $JAVA_HOME
+ 1009  cd 
+ 1010  cd Android/Sdk
+ 1011  l
+ 1012  cd tools/
+ 1013  l
+ 1014  cd bin/
+ 1015  l
+ 1016  cd ..
+ 1017  l
+ 1018  cd ..
+ 1019  l
+ 1020  studio.sh
+ 1021  ./studio.sh
+ 1022  cd Sdk
+ 1023  ./studio.sh
+ 1024  cd /opt/android-studio/bin
+ 1025  ./studio.sh
+ 1026  find . -type f -name gradle
+ 1027  cd /
+ 1028  find . -type f -name gradle
+ 1029  sudo find . -type f -name gradle
+ 1030  cd
+ 1031  l JV*
+ 1032  cd
+ 1033  l jv*
+ 1034  gedit jv_profile.sh
+ 1035  echo $PATH
+ 1036  ionic g service rest-api
+ 1037  sudo npm install -g corsproxy
+ 1038  ionic build
+ 1039  ionig g page detail
+ 1040  ionic g page detail
+ 1041  ionic build
+ 1042  ionic g page edit
+ 1043  cd src
+ 1044  cd 
+ 1045  ionic g page edit
+ 1046  cd ~/Workspaces/node/ionic4-angular6-crud
+ 1047  ionic g page edit
+ 1048  l
+ 1049  ionic g page create
+ 1050  ionic serve -l
+ 1051  ionic cordova run android
+ 1052  echo $PATH
+ 1053  ioniccordova run android
+ 1054  ionic cordova run android
+ 1055  ionic cordova run android --verbose
+ 1056  echo $PATH
+ 1057  ls /opt/android-studio/gradle/gradle-4.6/bin/gradle
+ 1058  l /opt/android-studio/gradle/gradle-4.6/bin/gradle
+ 1059  cd /opt/android-studio/gradle/gradle-4.6/bin/gradle
+ 1060  cd /opt/android-studio/gradle/gradle-4.6/bin
+ 1061  ls
+ 1062  gradle
+ 1063  cd 
+ 1064  cd Workspaces/node/
+ 1065  l
+ 1066  cd ionic4-angular6-crud/
+ 1067  ionic cordova run android --verbose
+ 1068  gradle -v
+ 1069  gradle
+ 1070  sudo apt install gradle
+ 1071  gradle -v
+ 1072  ionic cordova run android --verbose
+ 1073  ionic cordova run android
+ 1074  cordova run android
+ 1075  cd /opt/
+ 1076  l android-studio/
+ 1077  cd gradle
+ 1078  cd android-studio/
+ 1079  cd gradle/
+ 1080  l
+ 1081  cd gradle-4.6/
+ 1082  cd bin
+ 1083  l
+ 1084  cat gradle
+ 1085  l
+ 1086  chmod 755 gradle
+ 1087  sudo chmod 755 gradle
+ 1088  l
+ 1089  gradle
+ 1090  gradle --stacktrace
+ 1091  gradle --stacktrace  --info
+ 1092  cd ..
+ 1093  l
+ 1094  cd ..
+ 1095  l
+ 1096  cd ..
+ 1097  gradle --stacktrace  --info --scan
+ 1098  cd gadle
+ 1099  cd gradle/
+ 1100  l
+ 1101  cd gradle-4.6/
+ 1102  gradle --stacktrace  --info --scan
+ 1103  gradle --stacktrace  --info 
+ 1104  l
+ 1105  cd bin
+ 1106  gradle --stacktrace  --info --scan
+ 1107  cd /opt/android-studio/gradle/gradle-4.6/bin/.gradle
+ 1108  cd /opt/android-studio/gradle/gradle-4.6/bin/
+ 1109  l
+ 1110  mkdir .gradle
+ 1111  sudo mkdir .gradle
+ 1112  l
+ 1113  chmot 777 .gradle
+ 1114  chmod 777 .gradle
+ 1115  sudo chmod 777 .gradle
+ 1116  l
+ 1117  gradle -v
+ 1118  cd Workspaces/node/
+ 1119  ionic --help
+ 1120  cd
+ 1121  cd Workspaces/
+ 1122  l
+ 1123  cd node/
+ 1124  l
+ 1125  sudo npm -g ionic
+ 1126  npl -l
+ 1127  npm -l
+ 1128  npm install -g ionic
+ 1129  ionic start ionic4-angular6-crud sidemenu --type=angular
+ 1130  cd ./ionic4-angular6-crud/
+ 1131  npm install --save-dev @ionic/lab
+ 1132  ionic serve -l
+ 1133  ionic serve
+ 1134  ng serve
+ 1135  serve
+ 1136  node --help
+ 1137  cordova platform add android
+ 1138  cordova run android --device
+ 1139  cordova plugin add com-darryncampbell-cordova-plugin-intent
+ 1140  plugin
+ 1141  plugin ls
+ 1142  cordova plugin ls
+ 1143  db2start
+ 1144  npm run ionic:build --prod
+ 1145  npm run ionic:build
+ 1146  l
+ 1147  install ionic
+ 1148  npm install
+ 1149  install ionic
+ 1150  npm install ionic
+ 1151  ionic cordova run android --device
+ 1152  ionic cordova run browser
+ 1153  ionic cordova run android
+ 1154  ionic cordova run android --device
+ 1155  cd src
+ 1156  grep -iR ionicdemo
+ 1157  cd ..
+ 1158  ionic cordova run android --device
+ 1159  ionic cordova browser r
+ 1160  ionic cordova run browser --device
+ 1161  ionic cordova build browser 
+ 1162  ionic cordova android --emulator 
+ 1163  ionic cordova emulate android --emulator 
+ 1164  ionic cordova build android --emulator 
+ 1165  ionic cordova run android --emulator 
+ 1166  ionic cordova run android --emulator --verbose
+ 1167  ionic cordova build  android  --verbose
+ 1168  ionic cordova run android --device
+ 1169  ionic cordova run android --device
+ 1170  cd src
+ 1171  grep -iR DF2
+ 1172  grep -iR DF2 *
+ 1173  grep -iR DF2 
+ 1174  l
+ 1175  l *.json
+ 1176  ionic cordova run android --device
+ 1177  cd ..
+ 1178  ionic build --prod
+ 1179  ionic  run android --device
+ 1180  cordova add android
+ 1181  cordova help
+ 1182  cordova paltform add android
+ 1183  cordova platform add android
+ 1184  cordova platform add browser
+ 1185  cordova  platform ls
+ 1186  cordova emulate android
+ 1187  ionic cordova emulate android
+ 1188  ionic cordova run --emulator
+ 1189  ionic cordova run android --device
+ 1190  ionic build
+ 1191  ionic cordova run android --device
+ 1192  cordova plugin
+ 1193  ionic build
+ 1194  npm run build
+ 1195  ionic run
+ 1196  ionic serve
+ 1197  ionic
+ 1198  scannedData
+ 1199  ionic cordova run android --device
+ 1200  grep -iR page-home
+ 1201  grep -ilR page-home
+ 1202  cd src
+ 1203  grep -ilR page-home
+ 1204  ionic cordova run android
+ 1205  ionic cordova run android  --verbose
+ 1206  ionic cordova run android --device
+ 1207  ionic cordova run android  --verbose
+ 1208  cordova plugin add com-darryncampbell-cordova-plugin-intent
+ 1209  ionic generate provider
+ 1210  ionic cordova run android  --verbose
+ 1211  ionic cordova plugin add cordova-plugin-device
+ 1212  npm install --save @ionic-native/device
+ 1213  ionic cordova run android --device
+ 1214  cd src
+ 1215  grep -iR log_post 
+ 1216  ionic cordova run android --device
+ 1217  ionic generate page
+ 1218  ionic cordova run android --device
+ 1219  cd ..
+ 1220  ionic cordova run android --device
+ 1221  cd src
+ 1222  grep -iR "nav\.Ctrl"
+ 1223  grep -iR "nav\.Ctrl" *
+ 1224  grep -iR "Ctrl" *
+ 1225  cd ..
+ 1226  ionic cordova run android --device
+ 1227  ionic cordova platform android --device
+ 1228  ionic cordova run platform android --device
+ 1229  ionic cordova run  android --device
+ 1230  ionic cordova run browser --device
+ 1231  ionic cordova run android --device
+ 1232  cd src
+ 1233  grep -iR HomePage
+ 1234  cd ..
+ 1235  cd DVMobileDevel/
+ 1236  ionic cordova run android --device
+ 1237  cdm
+ 1238  ionic cordova run android --device
+ 1239  cordova platform add android 
+ 1240  ionic cordova run android --device
+ 1241  cd ..
+ 1242  cd ZebraIonicDemo-master-original-works/
+ 1243  ionic cordova run android --device
+ 1244  cd ..
+ 1245  cd Zebra1
+ 1246  ionic cordova run android --device
+ 1247  ionic cordova android --device
+ 1248  ionic cordova run android --device
+ 1249  ionic cordova run android --device  --verbose
+ 1250  cd ..
+ 1251  l
+ 1252  ls -la
+ 1253  ionic cordova run android --device  --verbose
+ 1254  ionic g page login
+ 1255  ls -la
+ 1256  cd src
+ 1257  l
+ 1258  cd pages
+ 1259  l
+ 1260  ionic cordova run android --device  --verbose
+ 1261  cd src
+ 1262  grep -iRl HomePage
+ 1263  ionic cordova run android --device  --verbose
+ 1264  cd ..
+ 1265  ionic cordova run android --device  --verbose
+ 1266  cd src
+ 1267  grep -irl changeDetectorRef
+ 1268  cd ..
+ 1269  cd ZebraIonicDemo-master
+ 1270  ionic cordova run android --device  --verbose
+ 1271  ionic cordova run android --device 
+ 1272  ionic cordova run android --device
+ 1273  ionic generate provider
+ 1274  ionic cordova run android --device
+ 1275  ionic serve
+ 1276  cordova platform add android
+ 1277  ionic cordova plugin add com-darryncampbell-cordova-plugin-intent
+ 1278  ionic cordova plugin
+ 1279  ionic cordova plugin cordova-plugin-advanced-http
+ 1280  ionic cordova plugin add cordova-plugin-advanced-http
+ 1281  ionic cordova plugin rm  cordova-plugin-advanced-http
+ 1282  ionic cordova plugin rm  cordova-plugin-device
+ 1283  ionic cordova plugin rm  cordova-plugin-file
+ 1284  ionic cordova plugin rm  cordova-plugin-ionic-keyboard
+ 1285  ionic cordova plugin rm  cordova-plugin-ionic-webview
+ 1286  ionic cordova plugin rm  cordova-plugin-splashscreen
+ 1287  ionic cordova plugin rm cordova-plugin-whitelist
+ 1288  cordova platform add android  
+ 1289  Ionic cordova run android –device
+ 1290  ionic cordova run android –device
+ 1291  $ ionic cordova plugin add cordova-plugin-device
+ 1292  $ npm install --save @ionic-native/device
+ 1293  npm install --save @ionic-native/device
+ 1294  ionic cordova run android –device
+ 1295  ionic cordova run android --device
+ 1296  ionic cordova run android --device --debug --stacktrace
+ 1297  cordova plugin add cordova-plugin-whitelist
+ 1298  cordova prepare
+ 1299  ionic cordova run android --device --debug --stacktrace
+ 1300  cordova plugin
+ 1301  cordova plugin add cordova-plugin-splashscreen
+ 1302  cordova plugin add cordova-plugin-ionic-webview
+ 1303  cordova plugin add cordova-plugin-ionic-keyboard
+ 1304  ionic cordova run android --device --debug --stacktrace
+ 1305  cordova plugin rm cordova-plugin-ionic-webview
+ 1306  cordova plugin add cordova-plugin-ionic-webview@1.1.16
+ 1307  ionic cordova run android --device --debug --stacktrace
+ 1308  ionic cordova run android --device 
+ 1309  l
+ 1310  ls -la
+ 1311  cdcd platforms
+ 1312  cd platforms
+ 1313  cd android/
+ 1314  l
+ 1315  ls -la
+ 1316  ./gradlew --info build clean
+ 1317  cd ..
+ 1318  cordova clean
+ 1319  cordova build
+ 1320  cordova clean
+ 1321  cordova build
+ 1322  ionic cordova run android --device 
+ 1323  cdv
+ 1324  git status
+ 1325  cdm
+ 1326  git status
+ 1327  git flow feature finish DV00024908-DVMobileDevel-39-comment-unused-imports
+ 1328  git flow feature start DV00024908-DVMobileDevel-39-comment-unused-imports
+ 1329  git add .
+ 1330  git commit
+ 1331  git svr-synch
+ 1332  git flow feature finish
+ 1333  git pushdev
+ 1334  cdw
+ 1335  git status
+ 1336  git flow feature start DV00024908-DVMobileDevel-39-comment-unused-imports
+ 1337  git add .
+ 1338  git commit
+ 1339  git svr-synch
+ 1340  git flow feature finish
+ 1341  git pushdev
+ 1342  ping 9.41.112.178
+ 1343  cdm
+ 1344  cd www
+ 1345  cd build/
+ 1346  grep -iR 42 *
+ 1347  grep -iR 42 
+ 1348  grep -iR "9\.42\." 
+ 1349  grep -iR "9\.41\." 
+ 1350  cdm
+ 1351  git status
+ 1352  cdw
+ 1353  git status
+ 1354  cdm
+ 1355  cd
+ 1356  cd Workspaces/node/
+ 1357  l
+ 1358  cd ZebraIonicDemo-master/
+ 1359  l
+ 1360  grep -iRl ZebraIonic
+ 1361  cd src
+ 1362  grep -iRl ZebraIonic
+ 1363  grep -iR ZebraIonic
+ 1364  cd ..
+ 1365  git clone http://git.hub.com/ZebraIonicDemo.git
+ 1366  git clone http://github.com/ZebraIonicDemo.git
+ 1367  l
+ 1368  git clone http://github.com/ZebraIonicDemo.git
+ 1369  git clone http://github.com/Zebra/ZebraIonicDemo.git
+ 1370  l
+ 1371  cd Zebra1
+ 1372  l
+ 1373  npm install
+ 1374  ionic cordova run android
+ 1375  rsynch --help
+ 1376  rsync --help
+ 1377  rsync -vr /home/dvbuild /media/dvbuild/Seagate\ Backup\ Plus\ Drive
+ 1378  rsync --help
+ 1379  rsync --help// {
+ 1380  //   "name": "Ionic",
+ 1381  //   "short_name": "Ionic",
+ 1382  //   "start_url": "index.html",
+ 1383  //   "display": "standalone",
+ 1384  //   "icons": [{
+ 1385  //     "src": "assets/imgs/logo.png",
+ 1386  //     "sizes": "512x512",
+ 1387  //     "type": "image/png"
+ 1388  //   }],
+ 1389  //   "background_color": "#4e8ef7",
+ 1390  //   "theme_color": "#4e8ef7"
+ 1391  // }
+ 1392  cd ..
+ 1393  hist
+ 1394  sudo apt install loki
+ 1395  hist
+ 1396  rsync -vr /home/dvbuild /media/dvbuild/Seagate\ Backup\ Plus\ Drive
+ 1397  rsync --help
+ 1398  rsync -vr --delete /home/dvbuild /media/dvbuild/Seagate\ Backup\ Plus\ Drive
+ 1399  cd 
+ 1400  cd Workspaces/node/
+ 1401  l
+ 1402  cd DataWedgeCordova/
+ 1403  l
+ 1404  cd ..
+ 1405  l
+ 1406  cd ZebraIonicDemo-master/
+ 1407  cdm
+ 1408  l
+ 1409  cd src
+ 1410  grep -iR "9.\4"
+ 1411  grep -iR "9.\4" *
+ 1412  grep -iR "41" *
+ 1413  grep -iR "42" *
+ 1414  which node
+ 1415  which nodejs
+ 1416  which node.js
+ 1417  grep -iR url_root 
+ 1418  cd ..
+ 1419  grep -iR url_root 
+ 1420  grep -iRl url_root 
+ 1421  grep -iR url_root src/providers/dvrest/dvrest.ts
+ 1422  grep -iR url_root www/build/main.js
+ 1423  grep -iR url_root.sourcemaps/main.js.map
+ 1424  grep -iR url_root .sourcemaps/main.js.map
+ 1425  grep -iRl url_root 
+ 1426  vi src/providers/dvrest/dvrest.ts
+ 1427  cd 
+ 1428  cd Workspaces/
+ 1429  cd node/
+ 1430  l
+ 1431  npm init stencil
+ 1432  cd StencilPWASample/npm start
+ 1433  cd StencilPWASample/
+ 1434  npm start
+ 1435  ps -ef
+ 1436  ps -ef | grep adb
+ 1437  kill -9 25320
+ 1438  ps -ef | grep adb
+ 1439  cd
+ 1440  cd Workspaces/
+ 1441  l
+ 1442  cd cd node/
+ 1443  l
+ 1444  cd node
+ 1445  l
+ 1446  cd ZebraIonicDemo-master-renamed/
+ 1447  l
+ 1448  ls --help
+ 1449  ls -R *.java
+ 1450  ls  *.java
+ 1451  grep -rl ZebraIonicDemo
+ 1452  cat platforms/android/app/build/intermediates/blame/res/debug/multi-v2/values-ar.json
+ 1453  cat platforms/android/app/build/intermediates/blame/res/debug/multi-v2/values-ar.json cat node_modules/body/package.json
+ 1454  grep -rl ZebraIonicDemo
+ 1455  cat node_modules/util/package.json
+ 1456  cat node_modules/fresh/package.json
+ 1457  clear
+ 1458  grep -rl ZebraIonicDemo
+ 1459  cd ..
+ 1460  sudo npm i -g ionic
+ 1461  sudo npm i -g cordova
+ 1462  ionic start MyZebra1 blank
+ 1463  l
+ 1464  cd MyZebra1/
+ 1465  l
+ 1466  ionic cordova plugin add com-darryncampbell-cordova-plugin-intent
+ 1467  cd ..
+ 1468  sudo npm i -g ionic
+ 1469  sudo npm i -g cordova
+ 1470  ionic cordova create com.ibm.dview.DVMo0bileDevel 
+ 1471  cordova create com.ibm.dview.DVMo0bileDevel 
+ 1472  l
+ 1473  cordova create com.ibm.dview DVMobileDevel 
+ 1474  ionic  create  DVMobileDevel 
+ 1475  ionic  start  DVMobileDevel blank
+ 1476  cd DVMobileDevel/
+ 1477  l
+ 1478  cordova create DVMobileDevel
+ 1479  cd ..
+ 1480  cd
+ 1481  cd Workspaces/node/
+ 1482  l
+ 1483  cordova create DVMobileDevel
+ 1484  cd DVMobileDevel/
+ 1485  l
+ 1486  cd ..
+ 1487  grep -ril zebra
+ 1488  cd src
+ 1489  grep -ril zebra
+ 1490  grep -ril com\.
+ 1491  grep -ril com\.zebra
+ 1492  cd ..
+ 1493  ionic cordova run android --device 
+ 1494  cdr
+ 1495  svr
+ 1496  svc
+ 1497  ionic cordova run android --device
+ 1498  db2 list db directory
+ 1499  db2 backup db JAX50
+ 1500  db2 connect to JAX50
+ 1501  db2 backup db JAX50
+ 1502  sudo db2 backup db JAX50
+ 1503  db2 backup db JAX50
+ 1504  md JAX50
+ 1505  mkdir JAX50
+ 1506  cd JAX50/
+ 1507  pwd
+ 1508  cd www
+ 1509  l
+ 1510  rm *
+ 1511  cd..
+ 1512  cd 
+ 1513  l
+ 1514  cdm
+ 1515  l
+ 1516  ionic cordova run android --device
+ 1517  git status
+ 1518  cdm
+ 1519  git status
+ 1520  db2look -help
+ 1521  cdm
+ 1522  git status
+ 1523  git checkout .
+ 1524  git status
+ 1525  cdm
+ 1526  git status
+ 1527  cd /home/dvbuild/BLD.500/DVMobileDevel/plugins/cordova-plugin-file
+ 1528  l
+ 1529  cdm
+ 1530  git status
+ 1531  npm-ls
+ 1532  npm -ls
+ 1533  npm -g cordova
+ 1534  npm update  cordova
+ 1535  sudo npm update cordova
+ 1536  npm install -g cordova
+ 1537  sudo npm install -g cordova
+ 1538  hist
+ 1539  hist -o hist.txt
+ 1540  history
+ 1541  history > history.txt

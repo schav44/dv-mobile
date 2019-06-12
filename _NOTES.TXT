@@ -1,0 +1,1141 @@
+
+
+
+BROWSER URL, LAB mode
+http://9.41.112.92:9081/DVMobile/index.html?device=TC8000&lab=1 
+OR http://9.41.112.92:9081/DVMobile/index.html?device=TC8000&lab=true
+This will ignore to validation=6 (scan only) and allow to values to be typed in
+
+-----------------------------------------------------------
+
+Datawedge notes:
+
+- ionic cordova plugin add com-darryncampbell-cordova-plugin-intent
+
+
+-------------------------
+Cordova Commands
+   cordova command [options]
+
+Global Commands
+    create ............................. Create a project
+    help ............................... Get help for a command
+    telemetry .......................... Turn telemetry collection on or off
+    config ............................. Set, get, delete, edit, and list global cordova options
+
+Project Commands
+    info ............................... Generate project information
+    requirements ....................... Checks and print out all the requirements
+                                            for platforms specified
+
+    platform ........................... Manage project platforms
+    plugin ............................. Manage project plugins
+
+    prepare ............................ Copy files into platform(s) for building
+    compile ............................ Build platform(s)
+    clean .............................. Cleanup project from build artifacts
+
+    run ................................ Run project
+                                            (including prepare && compile)
+    serve .............................. Run project with a local webserver
+                                            (including prepare)
+
+Learn more about command options using 'cordova help <command>'
+
+Aliases
+    build -> cordova prepare && cordova compile
+    emulate -> cordova run --emulator
+
+Options
+    -v, --version ...................... prints out this utility's version
+    -d, --verbose ...................... debug mode produces verbose log output for all activity,
+    --no-update-notifier ............... disables check for CLI updates
+    --nohooks .......................... suppress executing hooks
+                                         (taking RegExp hook patterns as parameters)
+
+Examples
+    cordova create myApp org.apache.cordova.myApp myApp
+    cordova plugin add cordova-plugin-camera
+    cordova platform add android
+    cordova plugin add cordova-plugin-camera --nosave
+    cordova platform add android --nosave
+    cordova requirements android
+    cordova build android --verbose
+    cordova run android
+    cordova build android --release -- --keystore="..\android.keystore" --storePassword=android --alias=mykey
+    cordova config ls
+
+
+
+RUNNING ON ANDROID
+====================
+
+- connect android device to pc with USB cable
+- open Chrome browser, click on menu : (3 dots) More tools -> Developer tools _> From the new window -> : 3 dot menu -> Remote devices -> TC8000 -> Inspect
+- put device configuration file on android filesysytem
+- On android open settings, choose the wifi network, connect to mclab
+- Build on workstation and load to TC800 (refer to build on VSC notes)
+
+---------------------------------
+Chrome://inspect (opens a debug window in the Chrome browser)
+---------------------------------
+SCANNER PREFIX: ]
+
+//==========================
+ActionSheet JSON definition:
+//----------------------------
+	{  
+	   "title":"Page Actions",
+	   "subTitle":"",
+	   "cssClass":"",
+	   "enableBackdropDismiss":"true",
+	   "buttons":
+            [  
+	      {  
+		 "text":"Walk",
+		 "icon":"walk",width: 30px;
+		 "cssClass":"",
+		 "role":"destructive",
+		 "value":"walk",
+		 "swProcessorRC":"4"
+	      },
+	      {  
+		 "text":"Drink",
+		 "icon":"drink",
+		 "cssClass":"",
+		 "role":"destructive",
+		 "value":"drink",
+		 "swProcessorRC":"4"
+	      },
+	      {  
+		 "text":"Wait",
+		 "icon":"wait",
+		 "cssClass":"",
+		 "role":"destructive",
+		 "value":"wait",
+		 "swProcessorRC":"4"
+	      },
+	      {  
+		 "text":"Cancel",
+		 "icon":"cancel",
+		 "cssClass":"",
+		 "role":"destructive",
+		 "value":"cancel",
+		 "swProcessorRC":"4"
+	      }
+	   ]
+	}
+
+
+
+Button properties that can be used for displaying buttons in a ctl_fulllistbox menus:
+icon
+(in the future there will other attributes, but for now we may use the cssStyle to make some of these styles)
+
+
+//--------------------------------------------------------
+IONIC TOOLBAR INFO:
+// specify toolbar height in style attribute:
+  <ion-toolbar style="height: 36px;"> ......
+
+----------------------------------
+IONIC BUTTON INFO:
+<ion-buttons left >  // align left in toolbar
+    <button ion-button icon-end  style="background-color: blue; ">  // make background color if using icon
+      <ion-icon name="arrow-back" style="color: white;font-size: 30px;"></ion-icon> // adjust size and color of icon image
+    </button>
+</ion-buttons>
+
+// outside of the left buttons tag puts the icon starts from the left (after the buttons lef tag)   
+<button ion-button icon-end  style="background-color: red; ">
+    <ion-icon name="arrow-back" style="color: white;font-size: 30px;"></ion-icon>
+</button>
+
+// inside the <buttons> tag, the icons have a different style (color, size, background) than
+// when they are outside of the <buttons> tag
+// to make them similar, use the style attribute to specify the height on the buttons:
+<button ion-button style="height:32px;"></button>
+
+// to make the icon on the right and leave leading space in the button add stle=padding-left: 80px
+
+// to set spacing between button icons in the toolbar specify a button 
+// with the background color of the toolbar and specify a width for the spacing in the style attribute:
+    <button ion-button style="height:32px;width: 80px; background-color: white;"> </button>
+
+// button rounding by setting style: border-radius: 64px; (change 64 to change roundness, 0=square)
+// or add the class like: .button-round-md { border-radius: 10px;} to the mobile.css file
+// button width controlled by style width: 50%
+// align button text by style: justify-content: left, center
+
+// seems like [style]='background-color: red;'" is sanitized, style= "background-color: red; " works
+
+// the click event must be on the botton tag, NOT on any embedded icon tag within the button tags
+=======================
+
+LISTBOX: ctl_filllistbox items level css classes
+/* controls item's style but not the separators between */
+.label .label-md
+{
+	color: white;
+ 	 background-color: blue;
+}
+
+/* style controls item's style and the separator section between items*/
+.input-wrapper
+{
+ 	 background-color: yellow;
+
+}
+
+
+
+
+=========================
+
+// Keyboard Ionic-cordova plugin notes:
+The fact that the keyboard does not cretate a problem when running web browser mode and accessing Keyboard Native Inoc class(building with cmd: ionic build)
+
+=======================
+
+CORDOVA PLUGIN - PLATFORM SUPPORT
+
+_______________Android__Browser__iOS__macOS__Windows__AmazFire
+file:             x       x       x     x     x         -
+splash:           x       -       x     -     x         x
+status:           x       -       x     -     x         - 
+user agent:       x        -      x     -     -         -
+
+IONIC NEW PROCT: ionic start [<name>] [<template>]
+
+
+COPY FILES TO ANDROID STORAGE
+----------------------------------
+adb device
+adb push C:\Users\Jonathan\Desktop\video.mp4 /sdcard/
+
+
+ANDROID STUDIO:
+View file system:
+View-> Tool Windows -> Device File Explorer
+
+Copy TARGET file to Emulator Device: (MAKE SURE THE PERMISSIONS ARE SET CORRECTLY rwrwrw)
+- copy the file to the /home/AndroidStudio/storage/emulated/0/data/com.ibm.dview.mobile/files folder
+
+- Open Android studio
+- Open the Device File Explorer
+- navigate to the folder into which the file will be uploaded
+    /storage/emulated/0/data/com.ibm.dview.mobile/files/
+    right click, upload,
+
+- right click on a folder/file and select upload
+- navigate to local file system from the dialog displayed
+- select the file to upload
+-(to delete a file from the device emulator) select the file in the Device File Explorer and right click, select delete
+
+From linux terminal:
+(using this.file.externalDataDirectory (evaluates to: /storage/emulated/0/Android/data/com.ibm.dview.mobile/files/)
+in TypeScript code)
+$ adb push DVMobile.json  /storage/emulated/0/Android/data/com.ibm.dview.mobile/files/DVMobile.json
+
+open adb SHELL:
+$ adb shell   // open android shell
+
+
+folder names:
+2019-01-10 13:58:42.569 main.js:915 DynamicFormPage: applicationDirectory: RO:file:///android_asset/
+2019-01-10 13:58:42.572 main.js:916 DynamicFormPage: applicationStorageDirectory: RO:file:///data/data/com.ibm.dview.mobile/
+2019-01-10 13:58:42.576 main.js:917 DynamicFormPage: dataDirectory: **: file:///data/data/com.ibm.dview.mobile/files/
+2019-01-10 13:58:42.579 main.js:918 DynamicFormPage: cacheDirectory:  : file:///data/data/com.ibm.dview.mobile/cache/
+2019-01-10 13:58:42.582 main.js:919 DynamicFormPage: externalDataDirectory:  : file:///storage/emulated/0/Android/data/com.ibm.dview.mobile/files/
+2019-01-10 13:58:42.586 main.js:733 HomePage: filename=file:///storage/emulated/0/Android/data/com.ibm.dview.mobile/files/DVMobile.json
+2019-01-10 13:58:42.610 main.js:764 ############################# File doesn't exist: 
+
+The android app will need the following configuration file:
+/// OLD - no longer used: file.dataDirectory="file:///data/data/io.ionic.starter/files/"    DVMobile.device.json
+file.dataDirectory="file:///data/data/ibm.dview.mobile/files/"    DVMobile.device.json
+file.externalDataDirectory=file:///storage/sdcard/Android/data/ibm.dview.mobile/files/DVMobile.device.json
+On TC800 folder: Android (disk name in file browser)/Internal Storage/data/Android/data/ibm.dview.mobile/files/DVMobile.device.json
+
+File format:
+{
+  "urlroot" : "http://9.41.112.92:9081/DVMobile/jaxrs/"
+}
+
+adb shell --> looks at the actual device connected. The shell will close if the device is disconnected
+and the device asks for confirmation when it is connected to the pc
+
+FIND A FILE IN adb shell:
+ $ adb shell ls -lR | grep filename_you_want
+
+
+BUILDING-DEPLOYING-RUNNING android version of DVMobile:
+-------------------------------------------------------
+connect TC8000 to pc with USB cable (or connecto cradle with TC8000 in cradle)
+
+vsc terminal: ionic cordova run android --device (this used to download to connected device but does not anymore)
+vsc terminal: ionic build --prod  (for building web version)
+
+android studio: stop the android studio and exit from it restart android studioAndroid studio
+android studio: file- open load app: from folder: BLD/DVMobile/platforms/android
+android studio:click on green triangle Run icon
+android studio: select device emulator or TC8000
+emulator selected: if emulator is already running it will be restarted
+TC8000 selected: hit OK on message box on the TC8000 to downlaod app
+TC8000 selected: the TC8000 app wil be downloaded and restatred.
+
+ionic cordova run android  // starts the android emulator
+ionic cordova run android --device (to run on USB connected TC8000)
+
+BUILDING WEB VERSION:
+---------------------
+VSC: ionic build; . ./wwwcp.sh
+
+VSC terminal: 
+  ionic build (or ionic build --prod)
+  copy files from VSC: to /BLD/WebDview/DVMobile/www folder **PRESERVE WEB-INF and META-INF folders
+  OR USE:  . ./wwwcp.sh
+
+  ionic cordova run android --device
+  replace other fileionic cordova run android --device and folders
+RAD IDE: refresh DVMionic cordova run android --devicebile project
+RAD IDE: clean on Seionic cordova run android --devicever (restarts application)
+BROWSER: goto URL http://9.41.112.92:9081/DVMobile/index.html?device=TC8000
+
+
+ADDING CORDOVA PLUGIN TO VSC:roo
+-----------------------------
+// add Cordova
+$ ionic cordova plugin add cordova-plugin-actionsheet
+$ npm install --save @ionic-native/action-sheet
+
+
+
+vsc terminal, for example: 
+$ ionic cordova plugin add cordova-plugin-file --save
+$ npm install --save @ionic-native/file
+
+$ ionic cordova plugin add cordova-plugin-splashscreen
+$ npm install --save @ionic-native/splash-screen
+
+$ ionic cordova plugin add cordova-plugin-statusbar
+$ npm install --save @ionic-native/status-bar
+
+$ ionic cordova plugin add cordova-plugin-useragent
+$ npm install --save @ionic-native/user-agent
+
+$ ionic cordova plugin add cordova-plugin-ionic-keyboard
+$ npm install --save @ionic-native/keyboard
+
+
+
+
+Ionic Recreate platform folders:
+--------------------------------
+in VSC terminal:
+rm -rf platforms (deletes platform folders)
+cordova platform add android (or ios, etc)
+refresh any android studion ide running:
+android studio: stop the android studio and exit from it restart android studioAndroid studio
+android studio: file- open load app: from folder: BLD/DVMobile/platforms/androi
+
+IONIC CONFIG.XML file:
+----------------------
+has sites that our application that can comminicate with
+has list of plugins
+has min android sdk version
+
+
+attribute assignments that work:
+--------------------------------
+<ion-footer [class]="dvmform.footer.ion_footer.styleClass" [ngStyle]="dvmform.footer.ion_footer.cssStyle">
+
+
+
+
+
+VALIDATOR EXAMPLE: 
+https://forum.ionicframework.com/t/ionic-validation-formbuilder-custom-validation-to-compare-e-mails/66452
+
+https://tech.io/playgrounds/8012/angular-form-validation-example-tutorial
+
+
+DEFINES 
+  DEF_KEY_CFG: string = "configuration"
+  DEF_KEY_USERID: string = "userid"
+  DEF_KEY_TOKEN: string = "token"
+  DEF_KEY_BODY: string = "_body"
+  DEF_KEY_REQUESTEDFORM: string = "requestedForm"
+
+  DEF_STATUS_WAITING: string = "waiting"
+  DEF_STATUS_COMPLETED: string = "completed"
+  DEF_STATUS_ERROR: string = "error"
+
+
+Screen model init:
+ - set focus:
+    loop through the elements
+        // GET NEXT INPUT (after starting point ("" or control.id)
+        if control is an input element (ctl_input, ctl_listbox)
+            set focus
+            found = true
+            break
+        end if    
+
+        if not found
+            if there is 1 button
+                set focus on button
+            else
+                // GET BUTTON TO FOCUS
+                loop trough buttons
+                    if submit or ok or yes
+                    set focus on that button
+                end loop
+            end if
+        end if    
+    end loop
+ 
+Enter key processing:
+
+if the enter coming from a button
+    click the button
+else
+    // GET NEXT INPUT (after starting point ("" or control.id)
+    loop through the elements after this control
+        if the following control is an input element (ctl_input, ctl_listbox)
+            set focusfound = true
+            break
+        end if
+    end loop
+    if not found
+        // GET BUTTON TO FOCUS
+        loop trough buttons
+            if submit or ok or yes
+            set focus on that button
+        end loop
+    end if
+endif
+    
+
+
+
+1- Screen has no input fields or listbox (just label)
+    focus: on submit
+    enter: acts like submit button
+
+2- Screen has only 1 input     
+    enter: acts like submit button
+
+3- Screen has Multiple inputs     
+    enter: tabs to next field,
+        if on last field, acts like submit
+
+4- Screen has single listbox
+    enter: submit
+
+5- Screen has single listbox and an input field
+    Focus on element sequence
+    enter: last field submits
+
+6- Screen has multiple listboxes
+    enter: like multiple input fields
+
+7- Screen has multiple listboxes and multiple input fields
+    enter:  like multiple input fields
+
+===========
+SNIPPETS
+===========
+
+---------------------------------
+ <select class="form-control" multiple="multiple" size="5"
+        ng-model="selectedCountry" 
+        ng-options="country.id as country.name for country in countries | filter:search">
+    <option value="">Select Country</option>
+  </select><br/>
+  selected countryId: <span ng-bind="selectedCountry"></span>
+
+---------------------------------
+   // GET THE KEYS(Attributes) IN AN OBJECT 
+   const objectKeys: Array<keyof any> = Object.keys(this.formGroup.controls)
+   console.log( ' ###### number of keys:' + objectKeys.length )
+   for (let key of objectKeys)
+    {
+       console.log(' ###### key:' + key);
+    }
+---------------------------------
+
+to truncate text in div
+"white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"
+----------------
+
+Working... Please wait... type popups:
+
+- Inject Controller
+constructor(public loadingCtrl: LoadingController ) 
+
+then show popup:
+    let loader = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      loader.present()
+      
+when you want to make it go away:      
+      loader.dismiss()
+
+// saving persistent data
+window.localStorage.setItem( "userid", this.username)
+
+-----------------
+
+iNPUT field
+(change) ="func)$event)"  this is triggered when the input field is changed and it loses focus. Not called while foucus is in field. It is called once.
+
+(keypress) triggers on key presses but doesn't trigger on certain keystrokes like the backspace.
+(keydown) triggers every time a key is pushed down. Hence always lags by 1 character; as it gets the element state before the keystroke was registered.
+(keyup) triggers every time a key push event has completed, hence this also includes the most recent character.
+----------------
+THIS LIST BOX WORKS VISUALLY but must add select, auto select etc (it is an alternative listbox)
+-need to add action code when an element is clicked
+
+        <div *ngSwitchCase="'ctl_listbox'"  style="overflow-y: scroll; height:270px;border: 3px solid #488Aff; border-radius: 5px;width: 286px;">
+            <div *ngSwitchCase="'ctl_listbox'" [id]="control.id">
+                <ion-list>
+                    <ion-item *ngFor="let opt of control.options">
+                        <ion-icon name="star"></ion-icon>
+                        <span (click)="listSelect()">{{opt.description}}</span>
+                        <hr/>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+------------------------        
+
+INPUT ENTRY THAT WORKS (but could not set focus, will try ionic input instead)
+ <div *ngSwitchCase="'ctl_input'" [id]="control.id"  [ngStyle]="control.attributes.statusCssStyle" [class]="control.attributes.styleClass">
+            <input *ngSwitchCase="'ctl_input'" [formControlName]="control.id" [id]="control.id" [name]="control.id" [class]="control.attributes.styleClass"
+                [style]="control.attributes.cssStyle" [maxlength]="control.attributes.maxlength" type="{{control.attributes.protectMode == '1' ? 'password':'text'}}"
+                [(ngModel)]="control.value" (keyup)="onKeydown($event, control )" [size]="100"
+                [tabindex]="control.tabindex"  
+                >
+        </div>
+------------------------        
+
+
+
+
+
+started with
+   <div *ngSwitchCase="'ctl_fulllistbox'" [id]="control.id" [class]="control.attributes.styleClass" [style]="control.attributes.cssStyle" >
+                <ion-list >
+                    <!-- [ngStyle]="control.attributes.cssStyle"  -->
+                    <ion-item *ngFor="let opt of control.options" [class]="control.attributes.itemClass" [style]="control.attributes.itemStyle" autofocus>
+                        <span (click)="listSelect()"   >{{opt.description}}</span>
+                        
+                    </ion-item>
+                </ion-list>
+            </div >
+2--
+   <!-- div *ngSwitchCase="'ctl_fulllistbox'" [id]="control.id" [class]="control.attributes.styleClass" [style]="control.attributes.cssStyle" -->
+                <ion-list *ngSwitchCase="'ctl_fulllistbox'" [id]="control.id" [class]="control.attributes.styleClass" [style]="control.attributes.cssStyle">
+                    <!-- [ngStyle]="control.attributes.cssStyle"  -->
+                    <ion-item *ngFor="let opt of control.options" [class]="control.attributes.itemClass" [style]="control.attributes.itemStyle" autofocus>
+                        <span (click)="listSelect()"   >{{opt.description}}</span>
+                        
+                    </ion-item>
+                </ion-list>
+            <!-- /div -->
+                
+=======================
+HostListener example:
+=======================
+ @HostListener('window:keyup', ['$event'] )
+  keyevent(event:KeyboardEvent)
+  {
+    // console.log("DynamicFormPage ##########>>>>> key:"+ event.key +"  >>> code: "+ event.keyCode )
+    // TODO: Handle backspace, unprintable chars etc ????????????????????????????????
+    if (event.keyCode != 13)
+    {
+      this.singleInputString += event.key     
+      console.log("DynamicFormPage INPUT FIELD: ##########>>>>> "+ this.singleInputString )
+    }
+    else
+    {
+      console.log("DynamicFormPage INPUT FIELD COMPLETED: ##########>>>>> "+ this.singleInputString )
+    }
+    
+  }
+========================
+
+to check if all the inputs are entered
+    <!-- TODO: FIX VALID PROBLEM
+       <button type="submit" [disabled]="!form.valid">Save</button>
+  -->
+========================
+
+conditional assignment fro an object attribute:
+{
+  attr1: "some value"
+, icon: !this.platform.is('ios') ? 'arrow-dropright-circle' : null,
+}
+
+PLACING IMAGES:
+================
+The following works for Browser and android builds
+- In the project IDE copy image file to folder ie: src/assets/imgs/image.png
+- in the ts code set a variable: imageSrc: string = "assets/imgs/DViewDiamond.gif"
+- in the html file refer to image as:
+       <img [src]="imageSrc" alt="" >
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+scratch pad:
+
+
+<button ion-button full icon-left  [id]="control.id + '_item_' +opt.value" 
+
+
+--------------------
+FOOTER code
+<!-- FOOTER BEGIN *****************************************-->
+
+
+<ion-footer  class="" style="">
+  <ion-toolbar>
+
+    <ion-buttons left>
+      <button ion-button icon-start style="color: yellow;      background-color: blue;" color="primary" id="btn_back">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons>
+
+
+      <button ion-button icon-start style="" id="btn_ok" style="color: yellow;      background-color: red;" >
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </button>
+      <button ion-button icon-start style="" id="btn_cancel">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+
+  
+
+    </ion-buttons>
+
+  
+    <ion-buttons right>
+      <button ion-button icon-end style="" id="btn_menu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+   
+          
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-footer>
+<!-- FOOTER END   *****************************************-->
+
+!-- FOOTER BEGIN *****************************************-->
+
+<ion-footer [class]="dvmform.footer.ion_footer.styleClass" [ngStyle]="dvmform.footer.ion_footer.cssStyle">
+  <ion-toolbar [class]="dvmform.footer.ion_footer.ion_toolbar.styleClass" [ngStyle]="dvmform.footer.ion_footer.ion_toolbar.cssStyle">
+
+    <ion-buttons >
+      <span *ngFor="let obj  of dvmform.footer.ion_footer.ion_toolbar.ion_buttons_left.contents">
+        <span [ngSwitch]="obj.type">
+          <button *ngSwitchCase="'button'" ion-button icon-start [id]="obj.id">
+            <ion-icon [name]="obj.icon.name"></ion-icon>
+          </button>
+        </span>
+      </span>
+    </ion-buttons>
+
+    <ion-buttons>
+      <span *ngFor="let obj  of dvmform.footer.ion_footer.ion_toolbar.ion_buttons.contents">
+        <!--
+        <button ion-button icon-start id="btn_ok">
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
+        <button ion-button icon-start style="" id="btn_cancel">
+          <ion-icon name="close-circle"></ion-icon>
+        </button>
+-->
+        <span [ngSwitch]="obj.type">
+          <button *ngSwitchCase="'button'" ion-button icon-start [id]="obj.id">
+            <ion-icon [name]="obj.icon.name"></ion-icon>
+          </button>
+        </span>
+
+      </span>
+    </ion-buttons>
+
+
+    <ion-buttons right>
+        <span *ngFor="let obj  of dvmform.footer.ion_footer.ion_toolbar.ion_buttons_right.contents">
+          <!--
+      <button ion-button icon-end style="" id="btn_menu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+-->
+      <span [ngSwitch]="obj.type">
+          <button *ngSwitchCase="'button'" ion-button icon-start [id]="obj.id">
+            <ion-icon [name]="obj.icon.name"></ion-icon>
+          </button>
+        </span>
+
+      </span>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>
+
+<!-- FOOTER END   *****************************************-->
+
+       {
+                                "type": "button",
+                                "id": "btn_ok",
+                                "styleClass": "yyy",
+                                "cssStyle":  {"color": "red" },
+                                "icon": {
+                                    "name": "checkmark-circle"
+                                },
+                                "clickParm": "ok"
+                            },
+
+
+
+
+
+
+                                                        {
+                                "type": "button",
+                                "id": "btn_ok",
+                                "styleClass": "yyy",
+                                "cssStyle":  {"color": "red" },
+                                "icon": {
+                                    "name": "checkmark-circle"
+                                },
+                                "clickParm": "ok"
+                            },
+                            {
+                                "type": "button",
+                                "id": "btn_cancel",
+                                "styleClass": "zzz",
+                                "cssStyle":  {"color": "green" },
+                                "icon": {
+                                    "name": "close-circle"
+                                },
+                                "clickParm": "cancel"
+                            }
+                            ,
+
+
+
+
+
+<!-- FOOTER BEGIN *****************************************-->
+
+<ion-footer [class]="dvmform.footer.ion_footer.styleClass" [ngStyle]="dvmform.footer.ion_footer.cssStyle">
+  <ion-toolbar [class]="dvmform.footer.ion_footer.ion_toolbar.styleClass" [ngStyle]="dvmform.footer.ion_footer.ion_toolbar.cssStyle">
+
+
+      <ion-buttons start id="dv_buttons_left">
+
+          <span *ngFor="let obj  of dvmform.footer.ion_footer.ion_toolbar.ion_buttons_left.contents">
+            <span [ngSwitch]="obj.id">
+              <button *ngSwitchCase="'btn_back'" ion-button icon-start [id]="obj.id">
+                <ion-icon [name]="obj.icon.name"></ion-icon>
+              </button>
+            </span>
+          </span>
+
+        </ion-buttons>
+
+    <ion-buttons end id="dv_buttons_right">
+      <span *ngFor="let obj  of dvmform.footer.ion_footer.ion_toolbar.ion_buttons_right.contents">
+        <span [ngSwitch]="obj.type">
+          <button *ngSwitchCase="'button'" ion-button icon-start [id]="obj.id">
+            <ion-icon [name]="obj.icon.name"></ion-icon>
+          </button>
+        </span>
+      </span>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>
+<!-- FOOTER END   *****************************************-->
+
+
+===============================
+
+========================
+
+SETTING FOCUS ON A FIELD:
+There are several options, some may work better than others depending on the device/browser.
+
+Option 1:
+import { Keyboard } from '@ionic-native/keyboard';
+- add Keyborad to providers list  in app.module.ts
+ providers: [
+    Keyboard,
+    UserAgent,
+    File
+  ]
+- Add code:
+-in the class layeer:
+  @ViewChild('Input1') myInput1 ;
+- add the event code
+  ionViewLoaded() {
+    console.log('@@@ DynamicFormPage dynamic-form.ts ionViewLoaded:  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+    setTimeout(() => {
+        this.myInput1.setFocus();
+      },150); //a least 150ms. maybe more
+    }
+- add html template (with autofocus directive)
+ <ion-item *ngSwitchCase="'1'">
+    <ion-input #input1 [placeholder]="control.attributes.placeholder" [formControlName]="control.id" [id]="control.id"
+        [class]="control.attributes.styleClass" [style]="control.attributes.cssStyle" [maxlength]="control.attributes.maxlength"
+        type="{{control.attributes.protectMode == '1' ? 'password':'text'}}" [(ngModel)]="control.value"
+        (ionFocus)="onInputFieldFocus()" (click)="onInputFieldFocus()"
+        (keypress)="ctl_input_onKeyPress($event, control)" [tabindex]="control.tabindex" autofocus>
+    </ion-input>
+</ion-item>
+
+
+////////////////////// ANDROID STUDIO ISSUES:
+- PROBLEM: Lost AVD manager
+    FIX: open the project again , click on New Window
+
+-PROBLEM: the command: ionic cordova run android --device Failed with the message:
+adb: Command failed with exit code 1 Error output:
+error: protocol fault (couldn't read status): Connection reset by peer
+[ERROR] An error occurred while running subprocess cordova.
+    FIX: form a terminal session:
+    adb kill-server
+    adb start-server
+
+==============================================================================
+
+- when a screen is displayed don't set the focus on input fields
+- scanners will send leading ] and terminating carriage return (datawedge and keyboard wedge)
+
+- Validations 5 = AlphanumericScanPreferred, and 6 = AlphanumericScanRequired will be treated
+    as 6 = AlphanumericScanRequired 
+    (only scan input will be accepted, keyboard input will be ignored)
+    This implies that a screen will only have 1 scanable input field (since there is no focus setting)
+
+- Fields with Validations 0 - 4 will be manually focused first, then
+    a value will be typed (scan input will be ignored)
+
+???- How to deal with screens with > 1 input fields that are scan required
+
+Validation Enumerations:
+    <!--   0 = Numeric                    -->
+    <!--   1 = Alpha                      -->
+    <!--   2 = Alphanumeric               -->
+    <!--   3 = Template                   -->
+    <!--   4 = NumericKeypadOnly          -->
+    <!--   5 = AlphanumericScanPreferred  -->
+    <!--   6 = AlphanumericScanRequired   -->
+
+Datawedge Listener
+    when a scan comes in emit event to send the Input Listener
+
+Input Listener:
+    when an event is received:
+    if (event coming from Datawedge)
+    {
+        if (form_input_count == 1 )
+        {
+           if ( the input validation is 4 or 5)
+           {
+               set input value to scanned value
+           }     
+           else
+           {
+               ignore scanned value (no value assigned)
+           }
+        }
+        else if (form_input_count == 0 )
+        {
+            ignore scanned value (no value assingned)
+        }
+        else if (form_input_count >1 )
+        {
+            ??????????????????????????????????????????
+        }
+    }     
+
+    Keyboard Listener:
+    ??? - How does the keyboard wedge send dataDirectory
+        what happens when focus is in the field
+        what happens when foucus is not on the field
+
+global:
+ processScanFlag = false
+ scannedInput = ""
+
+        if (indexOfSingleInputField == -1 )  return  // not a single input form
+        {
+
+            get the input control from controls array
+
+            if ( ( the input validation is 4 or 5))
+            {
+                if (key == "]" && processScanFlag== false)
+                {
+                    processScanFlag =true
+                }
+                else
+                {
+                    if (key != CR && processScanFlag == true)
+                    {
+                        scannedInput += key
+                    }
+                    if (key == CR && processScanFlag == true)
+                    {
+                        set Input field value = scannedInput
+                    }
+                }
+            }
+        }
+
+PAGE INIT
+disable input field on form init
+ if form input_count==1 && validation == 5)
+else dont disable
+
+
+On Rendering:
+use the autofocus attribute to determine the first input field (render with #input1)
+use this to assign value scanned to input
+
+on the form validation:
+    if the input field is validation ==4 and the field starts with ] then strip ] off
+
+when submitting form:
+    add the input's origination source as scanner or keyboard
+
+REFER TO KEY CODES DOC:
+https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+
+SETTING INPUT TO DISABLED:
+It looks like you're using the disabled attribute with a reactive form directive. If you set disabled to true
+      when you set up this control in your component class, the disabled attribute will actually be set in the DOM for
+      you. We recommend using this approach to avoid 'changed after checked' errors.
+       
+      Example: 
+      form = new FormGroup({
+        first: new FormControl({value: 'Nancy', disabled: true}, Validators.required),
+        last: new FormControl('Drew', Validators.required)
+      });
+
+=========================
+TEMP COPY:
+ processDataWedgeInput(scanData, time)
+  {
+    //console.log("DynamicFormPage: processDataWedgeInput(): " + scanData + " time: " + time)
+    let scannedData = scanData.extras["com.symbol.datawedge.data_string"]
+    let scannedType = scanData.extras["com.symbol.datawedge.label_type"]
+    console.log( "data:" + scannedData + " type:" +  scannedType + " timeAtDecode: "+  time)
+  }
+========================================
+
+ERROR RUNNING 
+/home/dvbuild/Android/Sdk/platform-tools/adb
+
+FIX:
+$ /home/dvbuild/Android/Sdk/platform-tools/adb kill-server
+$ /home/dvbuild/Android/Sdk/platform-tools/adb start-server
+OR for more ideas:
+https://stackoverflow.com/questions/35741242/error-failed-to-deploy-to-device-no-devices-found-cordova-using-visual-studio
+
+
+
+=============================
+ORIGINAL FOOTER CODE before adapting the new form definition JSON structure 2019-01-18-Friday
+  <!-- FOOTER BEGIN *****************************************-->
+  <ion-footer>
+    <ion-toolbar style="height: 35px;">
+
+      <ion-buttons left>
+        <div [id]="'spacer1'">
+          <span [hidden]="!(butCancel || butBack)">
+            <button ion-button icon-end [id]="'submit'" style="background-color:  #488aff; " (click)="onFormProcess('cancel', $event)">
+              <ion-icon name="arrow-back" style="color: white;font-size: 30px;"></ion-icon>
+            </button>
+          </span>
+        </div>
+
+      </ion-buttons>
+      <div style="text-align: center">
+        <span style="text-align:center">
+          <span [hidden]="!butSubmit">
+            <button ion-button style="height: 32px;" (click)="onFormProcess('submit', $event)"> SUBMIT</button>
+          </span>
+          <span [hidden]="!butOK">
+            <button ion-button style="height: 32px;" [id]="'ok'" (click)="onFormProcess('ok', $event)">OK</button>
+          </span>
+
+          <span [hidden]="!butYes">
+            <button ion-button style="height: 32px;" [id]="'yes'" (click)="onFormProcess('yes', $event)">Yes</button>
+          </span>
+
+          <span [hidden]="!butNo">
+            <button ion-button style="height: 32px;" [id]="'no'" (click)="onFormProcess('no', $event)">No</button>
+          </span>
+
+          <span [hidden]="!butLogout">
+            <button ion-button style="height: 32px;" [id]="'logout'" (click)="onFormProcess('logout', $event)">Logout</button>
+          </span>
+
+        </span>
+
+      </div>
+
+      <ion-buttons right>
+        <span [hidden]="!butActionSheet">
+        <button ion-button style="background-color:  #488aff;" (click)="actionSheetClicked( $event)">
+          <ion-icon name="menu" style="color: white;font-size: 30px;" ></ion-icon>
+        </button>
+      </span>
+      </ion-buttons>
+
+    </ion-toolbar>
+  </ion-footer>
+  <!-- FOOTER END   *****************************************-->
+
+  =====================================
+
+
+    <footer [(ngModel)]="dvmform.dialogid" ngDefaultControl [ngModelOptions]="{standalone: true}"></footer>
+    
+    without the ngDefaultControl it was giving error:
+    No value accessor for form control with unspecified name attribute Error: No value accessor for form control with unspecified name attribute
+
+
+    ==============================
+    PARENT CALLING CHILD COMPONENT METHOD or FUNCTION:
+
+    In Child Component:
+    - Add a method/ function to child:
+        doSomething( parm: string ) {
+            console.log("DO SOMETHING CALLED ....................parm: "+ parm)
+        }
+
+    In Parent Component:
+        add a # id to the child element like:
+        if it uses a HTML file:
+            <child #childID ></child>        
+        if it uses a template:
+            @Component({
+                selector: 'dynamic-form-comp',
+                template: '<child #childID></child>'
+            })
+    
+    In the ParentClass: 
+    - add the import:
+        import { ViewChild } from '@angular/core';
+
+    - add the following statement in the class attributes section:
+        @ViewChild('childID') child:ChildClass
+
+    - add calls to call the method:
+         this.child.doSomething("HIDE SUBMIT BUTTON....")
+         NOTE: this wont work from the parentClass constructor.
+         Must wait until the  ngOnInit() event is triggered
+         or add it in another method() in the parent class
+======================================================
+ MERMAID DIAGRAM SYNTAX
+
+gantt
+        dateFormat  YYYY-MM-DD
+        title Adding GANTT diagram functionality to mermaid
+        section A section
+        Completed task            :done,    des1, 2014-01-06,2014-01-08
+        Active task               :active,  des2, 2014-01-09, 3d
+        Future task               :         des3, after des2, 5d
+        Future task2               :         des4, after des3, 5d
+        section Critical tasks
+        Completed task in the critical line :crit, done, 2014-01-06,24h
+        Implement parser and jison          :crit, done, after des1, 2d
+        Create tests for parser             :crit, active, 3d
+        Future task in critical line        :crit, 5d
+        Create tests for renderer           :2d
+        Add to mermaid                      :1d
+
+-------
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+
+--------------------
+
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
+
+ =======================  
+
+Thoughts on PERIODIC POLLING:
+
+class variables:
+public everySecond: EventEmitter<number>;
+    
+constructor( elementRef: ElementRef ) 
+{
+   this.everySecond = new EventEmitter();
+}    
+
+public ngOnInit() : void 
+{
+    setInterval(
+        () : void => {
+            this.everySecond.emit( Date.now() );
+        },
+        1000
+        )
+    );
+)
+
+========================
+
+
+QUESTIONS IONIC-angular
+- if we have a component, how can we render multiple instatnces of it on the screen
+    with each rendering having it's own model
+- how can we access DOM elements like the currentelelent.parent.parent and set the style
+
+===================
+Ionic Navigation explanation:
+https://www.techiediaries.com/ionic-2-navigation/
+
+
+GET THE WIDTH AND HEIGHT OF THE APP Window
+----------------------------------------------
+    platform.ready().then((readySource) => {
+      // console.log('MyApp %%%%%%%%%%%% Width: ' + platform.width());
+      // console.log('MyApp %%%%%%%%%%%% Height: ' + platform.height());
+    });
+====================================
+dvbuild@jvtry1:~/BLD.500/DVMobileDevel/src$ grep -iRl HomePage
+pages/dynamic-form/dynamic-form.ts
+pages/home/home.ts
+app/app.module.ts
+app/app.component.ts
+docs/FormDefinitionFlow.seqdiag
+=========================

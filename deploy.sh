@@ -1,0 +1,1 @@
+ionic build && rsync -rv ./www/ /home/dvbuild/BLD/WebDView/DVMobile/www/
